@@ -12,3 +12,36 @@ Below you find instruction how to correctly set up your local environment for th
 4. Switch to `Credentials` panel:
    - Create an API Key and put it value in .env file as `GOOGLE_CLOUD_API_KEY`.
    - Create an OAuth 2.0 client ID 
+
+### Create virtual environment
+1. Create virtual environment using Python's `venv` module:
+   ```shell
+   python3 -m venv venv 
+   ```
+2. Install all dependencies from `requirements.txt` file:
+   ```shell
+   pip install -r requirements.txt
+   ```
+
+### Build a Docker image
+1. Create `.env` file by executing: 
+   ```shell
+   cp dev.env .env
+   ```
+2. Provide values for all env variables in file `.env`
+3. 
+
+## Possible debugging 
+### Installing psycopg2 on MacBook with M1 chip
+1. Install openssl by running command:
+    ```shell
+    brew install openssl
+    ```
+2. Check the path where openssl is installed:
+    ```shell
+    brew --prefix openssl
+    ```
+3. Use output from above and add LD flag when running the pip command. For example if the output is `/opt/homebrew/opt/openssl@1.1` run command below:
+    ```shell
+    LDFLAGS="-I/opt/homebrew/opt/openssl@1.1/include -L/opt/homebrew/opt/openssl@1.1/lib" pip install psycopg2
+    ```
