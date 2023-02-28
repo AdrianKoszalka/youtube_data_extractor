@@ -29,7 +29,16 @@ Below you find instruction how to correctly set up your local environment for th
    cp dev.env .env
    ```
 2. Provide values for all env variables in file `.env`
-3. 
+3. From root repository build a Docker image by running command:
+   ```shell
+   docker build -t youtube_data_extractor:latest .
+   ```
+
+### Run Docker image
+To run docker image execute the command below:
+```shell
+docker run -rm --env-file .env youtube_data_extractor:latest --channel_id={channel_id}
+```
 
 ## Possible debugging 
 ### Installing psycopg2 on MacBook with M1 chip
